@@ -1,0 +1,73 @@
+[project]
+name = "suspendtest"
+version = "0.0.1"
+description = "test suspend wakeup"
+authors = [{ name = "anan", email = "anlijiu@gmail.com" }]
+requires-python = ">=3.12"
+readme = "README.md"
+license = "*"
+license-files = [
+  "LICENSE",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Operating System :: OS Independent",
+]
+keywords = [
+  "suspend",
+]
+dependencies = [
+  "rich>=15.0.0",
+  "pyserial>=3.5",
+  "zlgcan>=0.2.7",
+  "python-can>=4.6.1",
+  "click>=8.3.2",
+  "uv>=0.11.1"
+]
+
+[dependency-groups]
+coverage = [
+  "coverage[toml]>=7.13",
+]
+dev = [
+    "basedpyright>=1.39.0",
+]
+pre-commit = [
+  "prek~=0.3.9",
+]
+
+testing = [
+  { include-group = "coverage" },
+  "colorama>=0.4.4,<0.5",
+  "faker>=37.4.2",
+  "moto>=5.0.21,<6",
+  "pytest>=9",
+  "pytest-asyncio>=1.3",
+  "pytest-codspeed>=4.2.0",
+  "pytest-docker~=3.1",
+  "pytest-github-actions-annotate-failures>=0.4.0",
+  "pytest-order~=1.3",
+  "pytest-randomly>=3.16,<5.0",
+  "pytest-structlog~=1.1",
+  "pytest-timeout>=2.4.0",
+  "pytest-xdist~=3.6",
+  "requests-mock>=1.12.1,<2",
+  "setproctitle~=1.3", # Used by pytest-xdist to aid with handling resource intensive processes.
+  "time-machine>=3",
+]
+typing = [
+  { include-group = "testing" },
+  "mypy~=1.20.1",
+  "ty==0.0.29",
+  "types-dateparser>=1.4.0.20260408",
+  "types-jsonschema>=4.26.0.20260408,<5",
+  "types-psutil>=7.2.2.20260408,<8",
+  "types-pyyaml>=6.0.12.20260408,<7",
+  "types-requests>=2.33.0.20260408,<3",
+]
