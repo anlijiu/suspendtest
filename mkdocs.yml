@@ -1,0 +1,36 @@
+site_name: suspendtest 文档
+site_description: 车机休眠/唤醒循环测试工具文档
+site_dir: site
+repo_name: suspendtest
+exclude_docs: README.md
+
+nav:
+  - 首页: index.md
+  - 快速开始: quickstart.md
+  - CLI 使用说明: cli.md
+  - 配置文件说明: configuration.md
+  - 架构与扩展点: architecture.md
+  - 报告格式说明: report.md
+  - API 参考:
+      - 总览: api/index.md
+      - 核心模块: api/core.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_root_toc_entry: false
+            show_signature_annotations: true
+            members_order: source
+            inherited_members: false
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true

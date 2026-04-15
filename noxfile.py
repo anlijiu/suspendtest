@@ -214,5 +214,21 @@ def typing(session: nox.Session) -> None:
     session.run("mypy", *session.posargs)
 
 
+@nox.session(
+    python=main_python_version,
+    tags=("docs",),
+    default=False,
+)
+def docs(session: nox.Session) -> None:
+    """Build or serve MkDocs documentation.
+
+    Args:
+        session: Nox session.
+    """
+    args = session.posargs or ("build", "--strict")
+    _uv_sync(session, "--group=docs")
+    session.run("mkdocs", *args)
+
+
 if __name__ == "__main__":
     nox.main()
